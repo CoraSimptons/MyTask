@@ -4,6 +4,9 @@ const path = require('path')
 const app = express()
 const port = 3000
 
+// Static file
+app.use(express.static(path.join(__dirname, 'public')))
+
 // Template engine
 app.engine('.hbs', engine({extname: '.hbs'}));
 app.set('view engine', '.hbs');

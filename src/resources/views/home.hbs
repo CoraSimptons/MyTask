@@ -1,1 +1,20 @@
-<h1>OK</h1>
+<div class="mt-4">
+    <div class="row">
+        {{#each tasks}}
+        <div class="col-lg-3 col-sm-2">
+            <div class="card border-success mb-3" style="max-width: 18rem;">
+                <div class="card-header bg-transparent border-success">3/6/2022</div>
+                <div class="card-body text-success">
+                    <h5 class="card-title">{{this.name}}</h5>
+                    <p class="card-text">{{this.description}}</p>
+                </div>
+                <div class="card-footer bg-transparent border-success">
+                    <label for="mytask">
+                    <input type="checkbox" name="" id="mytask">
+                    Hoàn thành công việc</label>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

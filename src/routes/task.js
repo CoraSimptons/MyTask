@@ -3,6 +3,6 @@ const router = express.Router()
 
 const taskController = require('../app/controllers/TaskController')
 
-router.use('/', taskController.index)
+router.get('/', taskController.index)
 
 module.exports = router;

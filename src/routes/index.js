@@ -1,8 +1,8 @@
-const taskRouter = require('./task')
+const tasksRouter = require('./tasks')
 const homeRouter = require('./home')
 
 function route(app) {
-    app.use('/task', taskRouter)
+    app.use('/tasks', tasksRouter)
     app.use('/', homeRouter)
 }
 

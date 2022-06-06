@@ -10,6 +10,13 @@ const route = require('./routes')
 const db = require('./config/db')
 db.connect();
 
+// middleware handle form data sended server
+app.use(express.urlencoded({
+  extended: true
+}))
+// xmlhttprequest, fetch, axios - send data to server through js library
+app.use(express.json())
+
 // Static file
 app.use(express.static(path.join(__dirname, 'public')))
 

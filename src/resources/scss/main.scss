@@ -1,0 +1,50 @@
+.container-form {
+  width: 50%;
+  background-color: rgb(73, 68, 68);
+  margin: 0 auto;
+  height: 400px;
+  border-radius: 2px;
+}
+
+.heading-form {
+  text-align: center;
+  padding: 10px;
+}
+
+.input-form {
+  display: flex;
+  margin: 10px;
+}
+
+.form-group {
+  flex: 1;
+}
+
+.btn {
+  height: 38px;
+  margin-left: 4px;
+}
+
+.task-details {
+  border: 1px solid #000;
+  margin: 0 10px;
+}
+
+.task-details__assignment {
+  display: flex;
+  align-items: center;
+  margin: 10px 20px;
+}
+
+.assignment {
+  margin-left: 8px;
+  flex: 1;
+}
+
+.task-details__heading {
+  text-align: center;
+}
+
+.task-details__assignment.completed .assignment {
+  text-decoration: line-through;
+}

@@ -1,0 +1,27 @@
+<div class="mt-4">
+    <h3>Công việc của tôi</h3>
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tên công việc</th>
+                <th scope="col">Miêu tả</th>
+                <th scope="col" colspan="2">Ngày thực hiện</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each tasks}}
+            <tr>
+                <th scope="row">{{sum @index 1}}</th>
+                <td>{{this.name}}</td>
+                <td>{{this.description}}</td>
+                <td>{{this.date}}</td>
+                <td>
+                    <a href="/tasks/{{this._id}}/edit" class="btn btn-link">Sửa</a>
+                    <a href="#" class="btn btn-link">Xoá</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

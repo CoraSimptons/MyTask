@@ -28,6 +28,22 @@ class TaskController {
             .then(() => res.redirect('/'))
             .catch(next);
     }
+
+    // [GET] /tasks/:id/Eedit
+    edit(req, res, next) {
+        Task.findById(req.params.id)
+            .then(task => res.render('tasks/edit', {
+                task: mongooseToObject(task)
+            }))
+            .catch(next);
+    }
+
+    // [PUT] /tasks/:id
+    update(req, res, next) {
+        Task.updateOne({ _id: req.params.id}, req.body)
+            .then(() => res.redirect('/me/stored/tasks'))
+            .catch(next);
+    }
 }
 
 module.exports = new TaskController;

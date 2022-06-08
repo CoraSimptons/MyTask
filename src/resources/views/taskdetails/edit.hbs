@@ -1,0 +1,28 @@
+<div class="mt-4">
+    <h3>Cập nhật công việc</h3>
+    <form method="POST" action="/tasks/{{task._id}}?_method=PUT" class="mt-4">
+        <div class="form-group">
+            <label for="name">Tên công việc</label>
+            <input type="text" class="form-control" name="name" id="name" value="{{task.name}}" placeholder="Nhập tên công việc mới">
+        </div>
+        <div class="form-group">
+            <label for="description">Miêu tả</label>
+            <textarea class="form-control" name="description" id="description" placeholder="Miêu tả công việc">{{task.description}}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="date">Ngày thực hiện</label>
+            <input type="date" class="form-control" name="date" id="date" value="{{task.date}}">
+        </div>
+        <div class="form-group">
+            <label for="backgroundColor">Example select</label>
+            <select class="form-control" name="backgroundColor" id="backgroundColor" aria-valuenow="{{task.backgroundColor}}">
+                <option value="Cam">Cam</option>
+                <option value="Đỏ">Đỏ</option>
+                <option value="Vàng">Vàng</option>
+                <option value="Xám">Xám</option>
+                <option value="Xanh dương">Xanh dương</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+    </form>
+</div>

@@ -12,7 +12,8 @@ const Task = new Schema({
     backgroundColor: {type: String},
     completed: {type: Boolean, default: false},
     date: {type: Date, default: Date.now},
-    slug: {type: String, slug: 'name', unique: true}
+    slug: {type: String, slug: 'name', unique: true},
+    taskdetails: [{ type: ObjectId, ref: 'Taskdetail'}]
 }, {
     // record create or update times
     timestamps: true,

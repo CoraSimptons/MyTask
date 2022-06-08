@@ -1,26 +1,22 @@
-<form class="mt-4 container-form">
+<form method="POST" action="/taskdetails/store" class="mt-4 container-form">
     <h2 class="heading-form">{{task.name}}</h2>
     <div class="input-form">
+        <input type="hidden" name="idtask" value="{{task._id}}">
         <div class="form-group">
-            <input type="email" class="form-control" placeholder="Nhiệm vụ mới">
+            <input type="text" class="form-control" name="name" placeholder="Nhiệm vụ mới">
         </div>
         <button type="submit" class="btn btn-primary">Thêm</button>
     </div>
     <div class="task-details">
         <div class="task-details__heading">Danh sách công việc</div>
+        {{#each task.taskdetails}}
         <div class="task-details__assignment completed">
             <input type="checkbox">
-            <div class="assignment">Quét nhà</div>
+            <div class="assignment">{{this.name}}</div>
             <div class="edit-assignment">
                 <i class="fa-solid fa-pen-to-square"></i>
             </div>       
         </div>
-        <div class="task-details__assignment">
-            <input type="checkbox">
-            <div class="assignment">Quét nhà</div>
-            <div class="edit-assignment">
-                <i class="fa-solid fa-pen-to-square"></i>
-            </div>       
-        </div>
+        {{/each}}
     </div>
 </form>

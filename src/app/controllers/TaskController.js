@@ -1,18 +1,18 @@
 const Task = require('../models/Task')
-const { mongooseToObject } = require('../../util/mongoose')
+const Taskdetail = require('../models/Taskdetail')
+const { multipleMongooseToObject,mongooseToObject } = require('../../util/mongoose')
 
 class TaskController {
 
     // [GET] /tasks/:slug
     show(req, res, next) {
-        // Use promises
-        Task.findOne({ slug: req.params.slug })
-            .then(task => {
-                res.render('tasks/show', {
+        Task.findOne({ slug: req.params.slug }).
+            populate('taskdetails'). // only works if we pushed refs to children
+            exec()
+                .then(task => res.render('taskdetails/show', {
                     task: mongooseToObject(task)
-                })
-            })
-            .catch(next);
+                }))
+                .catch(next);
     }
 
     // [GET] /tasks/create

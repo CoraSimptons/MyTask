@@ -44,6 +44,13 @@ class TaskController {
             .then(() => res.redirect('/me/stored/tasks'))
             .catch(next);
     }
+
+    // [DELETE] /tasks/:id
+    delete(req, res, next) {
+        Task.deleteOne({ _id: req.params.id })
+            .then(() => res.redirect('back'))
+            .catch(next);
+    }
 }
 
 module.exports = new TaskController;

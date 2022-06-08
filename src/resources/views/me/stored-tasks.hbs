@@ -18,10 +18,55 @@
                 <td>{{this.date}}</td>
                 <td>
                     <a href="/tasks/{{this._id}}/edit" class="btn btn-link">Sửa</a>
-                    <a href="#" class="btn btn-link">Xoá</a>
+                    <a href="#" class="btn btn-link" data-id="{{this._id}}" data-toggle="modal"
+                        data-target="#modal-confirm-delete">Xoá</a>
+                    {{!-- <a href="/tasks/{{this._id}}?_method=DELETE" class="btn btn-link">Xoá</a> --}}
                 </td>
             </tr>
             {{/each}}
         </tbody>
     </table>
 </div>
+
+{{!-- Confirm delete task --}}
+<div id="modal-confirm-delete" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Xoá công việc</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn chắc chắn muốn xoá không việc này?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn-delete-task" class="btn btn-danger">Xoá</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- Delete form hidden --}}
+<form name="form-delete-task" method="POST"></form>
+
+<script>
+    // callback run when DOM loaded completed
+    document.addEventListener('DOMContentLoaded', function () {
+        var taskId;
+        var deleteForm = document.forms['form-delete-task']
+        var btnDeleteTask = document.getElementById('btn-delete-task')
+
+        $('#modal-confirm-delete').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            taskId = button.data('id')
+        })
+
+        btnDeleteTask.onclick = function() {
+            deleteForm.action = `/tasks/${taskId}?_method=DELETE`
+            deleteForm.submit()
+        }
+    })
+</script>

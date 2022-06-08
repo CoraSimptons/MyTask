@@ -7,6 +7,7 @@ router.get('/create', taskController.create)
 router.post('/store', taskController.store)
 router.get('/:id/edit', taskController.edit)
 router.put('/:id', taskController.update)
+router.delete('/:id', taskController.delete)
 router.get('/:slug', taskController.show)
 
 module.exports = router;

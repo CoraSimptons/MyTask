@@ -14,7 +14,9 @@
             <input type="checkbox">
             <div class="assignment">{{this.name}}</div>
             <div class="edit-assignment">
-                <i class="fa-solid fa-pen-to-square"></i>
+                <a href="/taskdetails/{{this._id}}/edit">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </a>
             </div>       
         </div>
         {{/each}}

@@ -48,19 +48,19 @@ class TaskDetailController {
             .catch(next);
     }
 
-    // [GET] /tasks/:id/Eedit
+    // [GET] /taskdetails/:id/edit
     edit(req, res, next) {
-        Task.findById(req.params.id)
-            .then(task => res.render('tasks/edit', {
-                task: mongooseToObject(task)
+        Taskdetail.findById(req.params.id).populate('idtask').exec()
+            .then(taskdetail => res.render('taskdetails/edit', {
+                taskdetail: mongooseToObject(taskdetail)
             }))
             .catch(next);
     }
 
-    // [PUT] /tasks/:id
+    // [PUT] /taskdetails/:id
     update(req, res, next) {
-        Task.updateOne({ _id: req.params.id}, req.body)
-            .then(() => res.redirect('/me/stored/tasks'))
+        Taskdetail.updateOne({ _id: req.params.id }, { name: req.body.name })
+            .then(() => res.redirect(`/tasks/${req.body.slug}`))
             .catch(next);
     }
 }

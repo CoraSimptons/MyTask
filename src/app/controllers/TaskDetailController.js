@@ -21,7 +21,7 @@ class TaskDetailController {
         res.render('tasks/create')
     }
 
-    // [POST] /tasks/store
+    // [POST] /taskdetails/store
     store(req, res, next) {
         const taskdetail = new Taskdetail(req.body);
         taskdetail.save()
@@ -33,9 +33,10 @@ class TaskDetailController {
                         taskData.save()
                             // .then(task => res.json(task))
                             .then(() => {
-                                Task.findById('62a04585e5ce3d48453642ec').
+                                Task.findById(req.body.idtask).
                                     populate('taskdetails'). // only works if we pushed refs to children
                                     exec()
+                                        // .then(task => res.json(task))
                                         .then(task => res.render('taskdetails/show', {
                                             task: mongooseToObject(task)
                                         }))
@@ -61,6 +62,13 @@ class TaskDetailController {
     update(req, res, next) {
         Taskdetail.updateOne({ _id: req.params.id }, { name: req.body.name })
             .then(() => res.redirect(`/tasks/${req.body.slug}`))
+            .catch(next);
+    }
+
+    // [DELETE] /taskdetails/:id
+    delete(req, res, next) {
+        Taskdetail.deleteOne({ _id: req.params.id })
+            .then(() => res.redirect('back'))
             .catch(next);
     }
 }

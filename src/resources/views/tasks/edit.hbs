@@ -11,11 +11,12 @@
         </div>
         <div class="form-group">
             <label for="date">Ngày thực hiện</label>
-            <input type="date" class="form-control" name="date" id="date" value="{{task.date}}">
+            <input type="date" class="form-control" name="date" id="date" value="2022-06-01">
         </div>
         <div class="form-group">
             <label for="backgroundColor">Example select</label>
-            <select class="form-control" name="backgroundColor" id="backgroundColor" aria-valuenow="{{task.backgroundColor}}">
+            <select class="form-control" name="backgroundColor" id="backgroundColor">
+                <option value="" selected disabled hidden>{{task.backgroundColor}}</option>
                 <option value="Cam">Cam</option>
                 <option value="Đỏ">Đỏ</option>
                 <option value="Vàng">Vàng</option>

@@ -8,7 +8,7 @@
         <button type="submit" class="btn btn-primary">Thêm</button>
     </div>
     <div class="task-details">
-        <div class="task-details__heading">Danh sách công việc</div>
+        <div class="task-details__heading">Danh sách nhiệm vụ</div>
         {{#each task.taskdetails}}
         <div class="task-details__assignment completed">
             <input type="checkbox">
@@ -17,8 +17,36 @@
                 <a href="/taskdetails/{{this._id}}/edit">
                     <i class="fa-solid fa-pen-to-square"></i>
                 </a>
+            </div>
+            <div class="delete-assignment">
+                <a href="#" class="js-delete-assignment" data-id="{{this._id}}">
+                    <i class="fa-solid fa-trash"></i>
+                </a>
             </div>       
         </div>
         {{/each}}
     </div>
 </form>
+
+{{!-- Delete form hidden --}}
+<form name="form-delete-taskdetail" method="POST"></form>
+
+<script>
+    var btnDeleteTaskdetail
+    var taskDetailId
+    var deleteForm
+    // callback run when DOM loaded completed
+    document.addEventListener('DOMContentLoaded', function () {
+        deleteForm = document.forms['form-delete-taskdetail']
+        btnArrDeleteTaskdetail = document.querySelectorAll('.js-delete-assignment')
+        
+        for (const btnDeleteTaskdetail of btnArrDeleteTaskdetail) {
+            btnDeleteTaskdetail.addEventListener('click', function (e) {
+                e.preventDefault()
+                taskDetailId = btnDeleteTaskdetail.getAttribute('data-id')
+                deleteForm.action = `/taskdetails/${taskDetailId}?_method=DELETE`
+                deleteForm.submit()
+            })
+        }
+    })
+</script>

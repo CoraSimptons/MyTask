@@ -1,22 +1,77 @@
 <div class="mt-4">
+    <h3>Công việc hôm nay</h3>
     <div class="row">
         {{#each tasks}}
+        {{#unless this.completed}}
+            {{#if (compareDates this.date)}}
+            <div class="col-lg-3 col-sm-6">
+                <div class="card border-success mb-3" style="max-width: 18rem;min-height: 15rem;">
+                    <div class="card-header bg-primary text-white border-success">{{formatDate this.date}}</div>
+                    <div class="card-body">
+                        <a href="/tasks/{{this.slug}}">
+                            <h5 class="card-title">{{this.name}}</h5>
+                        </a>
+                        <p class="card-text font-weight-light font-italic">{{this.description}}</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-success font-weight-bold">
+                        <label for="mytask">
+                            <input type="checkbox" name="" id="mytask">
+                            Hoàn thành công việc</label>
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+        {{/unless}}
+        {{/each}}
+    </div>
+
+    <h3>Công việc quá hạn</h3>
+    <div class="row">
+        {{#each tasks}}
+        {{#unless this.completed}}
+            {{#unless (compareDates this.date)}}
+            <div class="col-lg-3 col-sm-6">
+                <div class="card border-success mb-3" style="max-width: 18rem;min-height: 15rem;">
+                    <div class="card-header bg-danger text-white border-success">{{formatDate this.date}}</div>
+                    <div class="card-body">
+                        <a href="/tasks/{{this.slug}}">
+                            <h5 class="card-title">{{this.name}}</h5>
+                        </a>
+                        <p class="card-text font-weight-light font-italic">{{this.description}}</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-success font-weight-bold">
+                        <label for="mytask">
+                            <input type="checkbox" name="" id="mytask">
+                            Hoàn thành công việc</label>
+                    </div>
+                </div>
+            </div>
+            {{/unless}}
+        {{/unless}}
+        {{/each}}
+    </div>
+
+    <h3>Công việc đã hoàn thành</h3>
+    <div class="row">
+        {{#each tasks}}
+        {{#if this.completed}}
         <div class="col-lg-3 col-sm-6">
             <div class="card border-success mb-3" style="max-width: 18rem;min-height: 15rem;">
-                <div class="card-header bg-transparent border-success">6/6/2022</div>
-                <div class="card-body text-success">
+                <div class="card-header bg-success text-white border-success">{{formatDate this.date}}</div>
+                <div class="card-body">
                     <a href="/tasks/{{this.slug}}">
                         <h5 class="card-title">{{this.name}}</h5>
                     </a>
-                    <p class="card-text">{{this.description}}</p>
+                    <p class="card-text font-weight-light font-italic">{{this.description}}</p>
                 </div>
-                <div class="card-footer bg-transparent border-success">
+                <div class="card-footer bg-transparent border-success font-weight-bold">
                     <label for="mytask">
-                    <input type="checkbox" name="" id="mytask">
-                    Hoàn thành công việc</label>
+                        <input type="checkbox" name="" id="mytask">
+                        Hoàn thành công việc</label>
                 </div>
             </div>
         </div>
+        {{/if}}
         {{/each}}
     </div>
 </div>

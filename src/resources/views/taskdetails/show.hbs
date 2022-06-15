@@ -10,8 +10,8 @@
     <div class="task-details">
         <div class="task-details__heading">Danh sách nhiệm vụ</div>
         {{#each task.taskdetails}}
-        <div class="task-details__assignment completed">
-            <input type="checkbox">
+        <div class="task-details__assignment {{isCompleted this.completed}}">
+            <input type="checkbox" class="input-check" data-id="{{this._id}}" {{isChecked this.completed}}>
             <div class="assignment">{{this.name}}</div>
             <div class="edit-assignment">
                 <a href="/taskdetails/{{this._id}}/edit">
@@ -31,15 +31,32 @@
 {{!-- Delete form hidden --}}
 <form name="form-delete-taskdetail" method="POST"></form>
 
+{{!-- Update missions form hidden --}}
+<form name="form-update-status-mission" method="POST">
+    <input type="hidden" name="completedMissionQuantity" value="{{task.completedMissionQuantity}}" class="js-completed-mission-quantity">
+    <input type="hidden" name="idtask" value="{{task._id}}">
+    <input type="hidden" name="slug" value="{{task.slug}}">
+    <input type="hidden" name="completed" class="js-completed-mission">
+</form>
+
 <script>
     var btnDeleteTaskdetail
     var taskDetailId
     var deleteForm
+    var updateStatusMission
+    var arrInputCheck
+    var valueCompleted
+    var completedMissionQuantity
+
     // callback run when DOM loaded completed
     document.addEventListener('DOMContentLoaded', function () {
         deleteForm = document.forms['form-delete-taskdetail']
+        updateStatusMission = document.forms['form-update-status-mission']
         btnArrDeleteTaskdetail = document.querySelectorAll('.js-delete-assignment')
-        
+        arrInputCheck = document.querySelectorAll('.input-check')
+        valueCompleted = document.querySelector('.js-completed-mission')
+        completedMissionQuantity = document.querySelector('.js-completed-mission-quantity')
+
         for (const btnDeleteTaskdetail of btnArrDeleteTaskdetail) {
             btnDeleteTaskdetail.addEventListener('click', function (e) {
                 e.preventDefault()
@@ -47,6 +64,21 @@
                 deleteForm.action = `/taskdetails/${taskDetailId}?_method=DELETE`
                 deleteForm.submit()
             })
+        }
+
+        for (const itemInputCheck of arrInputCheck) {
+            itemInputCheck.onclick = function () {
+                taskDetailId = itemInputCheck.getAttribute('data-id')
+                updateStatusMission.action = `/taskdetails/${taskDetailId}?_method=PUT`
+                if (itemInputCheck.checked) {
+                    valueCompleted.value = true
+                    completedMissionQuantity.value = parseInt(completedMissionQuantity.value) + 1
+                } else {
+                    valueCompleted.value = false
+                    completedMissionQuantity.value = parseInt(completedMissionQuantity.value) - 1
+                }
+                updateStatusMission.submit()
+            } 
         }
     })
 </script>

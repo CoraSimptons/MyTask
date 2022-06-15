@@ -55,6 +55,12 @@ app.engine(
         }
         return false;
       },
+      isChecked: (statusCompleted) => {
+        return statusCompleted === true ? 'checked' : '';
+      },
+      isCompleted: (statusCompleted) => {
+        return statusCompleted === true ? 'completed' : '';
+      },
     }
   })
 );

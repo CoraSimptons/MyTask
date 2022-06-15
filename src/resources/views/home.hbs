@@ -1,5 +1,5 @@
 <div class="mt-4">
-    <h3>Công việc hôm nay</h3>
+    <h3>Công việc chính</h3>
     <div class="row">
         {{#each tasks}}
         {{#unless this.completed}}
@@ -16,7 +16,7 @@
                     <div class="card-footer bg-transparent border-success font-weight-bold">
                         <label for="mytask">
                             <input type="checkbox" name="" id="mytask">
-                            Hoàn thành công việc</label>
+                            Hoàn thành công việc {{this.completedMissionQuantity}}/{{this.missionQuantity}}</label>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
         {{/each}}
     </div>
 
-    <h3>Công việc đã hoàn thành</h3>
+    <h3>Công việc hoàn thành</h3>
     <div class="row">
         {{#each tasks}}
         {{#if this.completed}}

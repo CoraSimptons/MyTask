@@ -1,6 +1,9 @@
 const Task = require('../models/Task')
 const Taskdetail = require('../models/Taskdetail')
 const { multipleMongooseToObject,mongooseToObject } = require('../../util/mongoose')
+var arrays = new Array()
+var completedMissionQuantity
+
 
 class TaskDetailController {
 
@@ -28,8 +31,9 @@ class TaskDetailController {
             .then(taskdetailTemp => {
                 Task.findById(req.body.idtask)
                     .then(taskData => {
-                        const taskTemp = mongooseToObject(taskData)
                         taskData.taskdetails.push(taskdetailTemp);
+                        arrays = taskData.taskdetails;
+                        taskData.missionQuantity = arrays.length;
                         taskData.save()
                             // .then(task => res.json(task))
                             .then(() => {
@@ -38,7 +42,10 @@ class TaskDetailController {
                                     exec()
                                         // .then(task => res.json(task))
                                         .then(task => res.render('taskdetails/show', {
-                                            task: mongooseToObject(task)
+                                            task: mongooseToObject(task),
+                                            completedMissionsQuantity: task.taskdetails.filter(function(array,index) {
+                                                return array.completed===true
+                                            }).length
                                         }))
                                         .catch(next);
                             })
@@ -60,9 +67,20 @@ class TaskDetailController {
 
     // [PUT] /taskdetails/:id
     update(req, res, next) {
-        Taskdetail.updateOne({ _id: req.params.id }, { name: req.body.name })
-            .then(() => res.redirect(`/tasks/${req.body.slug}`))
-            .catch(next);
+        var completed = req.body.completed
+        if (completed === undefined) {
+            Taskdetail.updateOne({ _id: req.params.id }, { name: req.body.name })
+                .then(() => res.redirect(`/tasks/${req.body.slug}`))
+                .catch(next);
+        } else {
+            Task.updateOne({ _id: req.body.idtask}, { completedMissionQuantity: req.body.completedMissionQuantity })
+                .then(() => {
+                    Taskdetail.updateOne({ _id: req.params.id }, { completed: completed })
+                        .then(() => res.redirect(`/tasks/${req.body.slug}`))
+                        .catch(next);
+                })
+                .catch(next);
+        }
     }
 
     // [DELETE] /taskdetails/:id

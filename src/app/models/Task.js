@@ -13,7 +13,9 @@ const Task = new Schema({
     completed: {type: Boolean, default: false},
     date: {type: Date, default: Date.now},
     slug: {type: String, slug: 'name', unique: true},
-    taskdetails: [{ type: ObjectId, ref: 'Taskdetail'}]
+    taskdetails: [{ type: ObjectId, ref: 'Taskdetail'}],
+    missionQuantity: { type: Number, default: 0},
+    completedMissionQuantity: { type: Number, default: 0}
 }, {
     // record create or update times
     timestamps: true,

@@ -13,7 +13,7 @@
                         </a>
                         <p class="card-text font-weight-light font-italic">{{this.description}}</p>
                     </div>
-                    <div class="card-footer bg-transparent border-success font-weight-bold">
+                    <div class="card-footer border-success font-weight-bold {{isTaskCompleted this.missionQuantity this.completedMissionQuantity}}">
                         <label for="mytask">
                             <input type="checkbox" name="" id="mytask">
                             Hoàn thành công việc {{this.completedMissionQuantity}}/{{this.missionQuantity}}</label>

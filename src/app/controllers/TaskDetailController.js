@@ -86,7 +86,19 @@ class TaskDetailController {
     // [DELETE] /taskdetails/:id
     delete(req, res, next) {
         Taskdetail.deleteOne({ _id: req.params.id })
-            .then(() => res.redirect('back'))
+            .then(() => {
+                Task.updateOne({ _id: req.body.idtask }, {
+                    // remove an item in array
+                    $pull: {
+                        taskdetails: req.params.id
+                    },
+                    $inc: {
+                        missionQuantity: -1
+                    }
+                })
+                    .then(() => res.redirect('back'))
+                    .catch(next);
+            })
             .catch(next);
     }
 }

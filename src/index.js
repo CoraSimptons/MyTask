@@ -61,6 +61,9 @@ app.engine(
       isCompleted: (statusCompleted) => {
         return statusCompleted === true ? 'completed' : '';
       },
+      isTaskCompleted: (totalMissions, completedMissions) => {
+        return totalMissions === completedMissions ? 'bg-secondary text-white' : 'bg-transparent';
+      },
     }
   })
 );

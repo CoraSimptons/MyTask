@@ -9,6 +9,9 @@ class TaskController {
         Task.findOne({ slug: req.params.slug }).
             populate('taskdetails'). // only works if we pushed refs to children
             exec()
+                // .then(task => {
+                //     res.json(task)   
+                // })
                 .then(task => res.render('taskdetails/show', {
                     task: mongooseToObject(task)
                 }))

@@ -29,7 +29,9 @@
 </form>
 
 {{!-- Delete form hidden --}}
-<form name="form-delete-taskdetail" method="POST"></form>
+<form name="form-delete-taskdetail" method="POST">
+    <input type="hidden" name="idtask" value="{{task._id}}">
+</form>
 
 {{!-- Update missions form hidden --}}
 <form name="form-update-status-mission" method="POST">

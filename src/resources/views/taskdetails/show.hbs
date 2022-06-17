@@ -1,4 +1,4 @@
-<form method="POST" action="/taskdetails/store" class="mt-4 container-form">
+<form method="POST" action="/taskdetails/store" class="container-form centered">
     <h2 class="heading-form">{{task.name}}</h2>
     <div class="input-form">
         <input type="hidden" name="idtask" value="{{task._id}}">
@@ -7,7 +7,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Thêm</button>
     </div>
-    <div class="task-details">
+    <div class="task-details {{hasMission task.missionQuantity}}">
         <div class="task-details__heading">Danh sách nhiệm vụ</div>
         {{#each task.taskdetails}}
         <div class="task-details__assignment {{isCompleted this.completed}}">

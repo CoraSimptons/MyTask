@@ -64,6 +64,12 @@ app.engine(
       isTaskCompleted: (totalMissions, completedMissions) => {
         return totalMissions === completedMissions ? 'bg-secondary text-white' : 'bg-transparent';
       },
+      notify: (info) => {
+        return info === 'success' ? 'toastmessage' : '';
+      },
+      hasMission: (num) => {
+        return num > 0 ? '' : 'nomission';
+      },
     }
   })
 );

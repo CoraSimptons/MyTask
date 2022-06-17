@@ -2,8 +2,10 @@
   width: 50%;
   background-color: rgb(73, 68, 68);
   margin: 0 auto;
-  height: 400px;
+  min-height: 150px;
+  max-height: 500px;
   border-radius: 2px;
+  padding: 10px 0;
 }
 
 .heading-form {
@@ -43,6 +45,10 @@
 
 .task-details__heading {
   text-align: center;
+}
+
+.nomission {
+  display: none;
 }
 
 .task-details__assignment.completed .assignment {

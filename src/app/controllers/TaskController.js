@@ -9,9 +9,6 @@ class TaskController {
         Task.findOne({ slug: req.params.slug }).
             populate('taskdetails'). // only works if we pushed refs to children
             exec()
-                // .then(task => {
-                //     res.json(task)   
-                // })
                 .then(task => res.render('taskdetails/show', {
                     task: mongooseToObject(task)
                 }))
@@ -43,9 +40,16 @@ class TaskController {
 
     // [PUT] /tasks/:id
     update(req, res, next) {
-        Task.updateOne({ _id: req.params.id}, req.body)
-            .then(() => res.redirect('/me/stored/tasks'))
-            .catch(next);
+        var completed = req.body.completed
+        if (completed === undefined) {
+            Task.updateOne({ _id: req.params.id}, req.body)
+                .then(() => res.redirect('/me/stored/tasks'))
+                .catch(next);
+        } else {
+            Task.updateOne({ _id: req.params.id}, { completed: completed})
+                .then(() => res.redirect('/?valid=' + 'success'))
+                .catch(next);
+        }
     }
 
     // [DELETE] /tasks/:id

@@ -1,4 +1,4 @@
-<div class="mt-4">
+<div>
     <h3>Công việc chính</h3>
     <div class="row">
         {{#each tasks}}
@@ -15,7 +15,7 @@
                     </div>
                     <div class="card-footer border-success font-weight-bold {{isTaskCompleted this.missionQuantity this.completedMissionQuantity}}">
                         <label for="mytask">
-                            <input type="checkbox" name="" id="mytask">
+                            <input type="checkbox" id="mytask" class="input-checkbox-primary" data-id="{{this._id}}">
                             Hoàn thành công việc {{this.completedMissionQuantity}}/{{this.missionQuantity}}</label>
                     </div>
                 </div>
@@ -75,3 +75,157 @@
         {{/each}}
     </div>
 </div>
+
+{{!-- Confirm completed task --}}
+<div id="modal-confirm-complete" class="modal js-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Hoàn thành công việc</h5>
+                <button type="button" id="btn-close-task" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn còn những nhiệm vụ chưa hoàn thành. Bạn có chắc chắn muốn hoàn thành công việc này?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn-complete-task" class="btn btn-danger">Hoàn thành</button>
+                <button type="button" id="btn-cancel-task" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- Update status of a task form hidden --}}
+<form name="form-update-status-task" method="POST">
+    <input type="hidden" name="completed" value="true">
+</form>
+
+<div id="toast" class="{{notify info}}"></div>
+
+<script>
+    var arrInputCheckboxPrimary
+    var taskId
+    var updateStatusTask
+    var main
+    var hasModal
+    var btnCompleteTask
+    var btnCancelTask
+    var btnCloseTask
+    var itemIndex
+    var modal
+
+    function showSuccessToast() {
+        toast({
+            title: "Chúc mừng!",
+            message: "Bạn đã hoàn thành công việc.",
+            type: "success",
+            duration: 3000
+        });
+    }
+
+    function showErrorToast() {
+        toast({
+            title: "Thất bại!",
+            message: "Có lỗi xảy ra, vui lòng liên hệ quản trị viên.",
+            type: "error",
+            duration: 5000
+        });
+    }
+
+    // Toast function
+    function toast({ title = "", message = "", type = "info", duration = 3000 }) {
+        if (main) {
+            const toast = document.createElement("div");
+        
+            // Auto remove toast
+            const autoRemoveId = setTimeout(function () {
+                main.removeChild(toast);
+            }, duration + 1000);
+        
+            // Remove toast when clicked
+            toast.onclick = function (e) {
+                if (e.target.closest(".toast__close")) {
+                main.removeChild(toast);
+                clearTimeout(autoRemoveId);
+                }
+            };
+        
+            const icons = {
+                success: "fas fa-check-circle",
+                info: "fas fa-info-circle",
+                warning: "fas fa-exclamation-circle",
+                error: "fas fa-exclamation-circle"
+            };
+            const icon = icons[type];
+            const delay = (duration / 1000).toFixed(2);
+        
+            toast.classList.add("toast", `toast--${type}`);
+            toast.style.animation = `slideInLeft ease .3s, fadeOut linear 1s ${delay}s forwards`;
+        
+            toast.innerHTML = `
+                            <div class="toast__icon">
+                                <i class="${icon}"></i>
+                            </div>
+                            <div class="toast__body">
+                                <h3 class="toast__title">${title}</h3>
+                                <p class="toast__msg">${message}</p>
+                            </div>
+                            <div class="toast__close">
+                                <i class="fas fa-times"></i>
+                            </div>`;
+            main.appendChild(toast);
+        }
+    }
+
+    function mySubmit() {
+        updateStatusTask.submit()
+    }
+
+    // callback run when DOM loaded completed
+    document.addEventListener('DOMContentLoaded', function () {
+        arrInputCheckboxPrimary = document.querySelectorAll('.input-checkbox-primary')
+        updateStatusTask = document.forms['form-update-status-task']
+        main = document.getElementById("toast");
+        btnCompleteTask = document.getElementById('btn-complete-task')
+        btnCancelTask = document.getElementById('btn-cancel-task')
+        btnCloseTask = document.getElementById('btn-close-task')
+        modal = document.querySelector('.js-modal')
+
+        // display successfull message
+        if (main.classList.contains('toastmessage')) {
+            showSuccessToast()
+        }
+
+        for (const itemInputCheckboxPrimary of arrInputCheckboxPrimary) {
+            // Check has modal when all missions are not completed
+            if (itemInputCheckboxPrimary.parentElement.parentElement.classList.contains('bg-transparent')) {
+                itemInputCheckboxPrimary.setAttribute('data-toggle','modal')
+                itemInputCheckboxPrimary.setAttribute('data-target','#modal-confirm-complete')
+            }
+
+            itemInputCheckboxPrimary.onclick = function () {
+                taskId = itemInputCheckboxPrimary.getAttribute('data-id')
+                hasModal = itemInputCheckboxPrimary.getAttribute('data-toggle')
+                updateStatusTask.action = `/tasks/${taskId}?_method=PUT`
+                if (itemInputCheckboxPrimary.checked && hasModal === null) {
+                    updateStatusTask.submit()
+                } else {
+                    btnCompleteTask.onclick = function() {
+                        updateStatusTask.submit()
+                    }
+                    btnCancelTask.onclick = function() {
+                        itemInputCheckboxPrimary.checked = false
+                    }
+                    btnCloseTask.onclick = function() {
+                        itemInputCheckboxPrimary.checked = false
+                    }
+                    modal.addEventListener('click', function() {
+                        itemInputCheckboxPrimary.checked = false
+                    })
+                }
+            } 
+        }
+    })
+</script>

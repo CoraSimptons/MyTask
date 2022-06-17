@@ -7,23 +7,6 @@ var completedMissionQuantity
 
 class TaskDetailController {
 
-    // [GET] /tasks/:slug
-    show(req, res, next) {
-        // Use promises
-        Task.findOne({ slug: req.params.slug })
-            .then(task => {
-                res.render('tasks/show', {
-                    task: mongooseToObject(task)
-                })
-            })
-            .catch(next);
-    }
-
-    // [GET] /tasks/create
-    create(req, res, next) {
-        res.render('tasks/create')
-    }
-
     // [POST] /taskdetails/store
     store(req, res, next) {
         const taskdetail = new Taskdetail(req.body);
@@ -42,10 +25,7 @@ class TaskDetailController {
                                     exec()
                                         // .then(task => res.json(task))
                                         .then(task => res.render('taskdetails/show', {
-                                            task: mongooseToObject(task),
-                                            completedMissionsQuantity: task.taskdetails.filter(function(array,index) {
-                                                return array.completed===true
-                                            }).length
+                                            task: mongooseToObject(task)
                                         }))
                                         .catch(next);
                             })

@@ -11,7 +11,8 @@ class HomeController {
             .then(tasks => {
                 res.render('home', {
                     // object literal
-                    tasks: multipleMongooseToObject(tasks)
+                    tasks: multipleMongooseToObject(tasks),
+                    info: req.query.valid
                 })
             })
             .catch(next);

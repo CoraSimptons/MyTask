@@ -11,3 +11,17 @@
     margin-top: 80px;
 }
 
+// body {
+//     background-image: url('http://localhost:3000/img/mydailytasks.png');
+//     background-repeat: no-repeat;
+//     background-attachment: fixed;
+//     background-size: 100% 100%;
+// }
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}

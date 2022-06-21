@@ -1,11 +1,11 @@
-<div>
+<div class="{{hasTask tasks}}">
     <h3>Công việc chính</h3>
     <div class="row">
         {{#each tasks}}
         {{#unless this.completed}}
             {{#if (compareDates this.date)}}
             <div class="col-lg-3 col-sm-6">
-                <div class="card border-success mb-3" style="max-width: 18rem;min-height: 15rem;">
+                <div class="card border-success mb-3" style="max-width: 18rem;min-height: 16rem;">
                     <div class="card-header bg-primary text-white border-success">{{formatDate this.date}}</div>
                     <div class="card-body">
                         <a href="/tasks/{{this.slug}}">
@@ -31,7 +31,7 @@
         {{#unless this.completed}}
             {{#unless (compareDates this.date)}}
             <div class="col-lg-3 col-sm-6">
-                <div class="card border-success mb-3" style="max-width: 18rem;min-height: 15rem;">
+                <div class="card border-success mb-3" style="max-width: 18rem;min-height: 16rem;">
                     <div class="card-header bg-danger text-white border-success">{{formatDate this.date}}</div>
                     <div class="card-body">
                         <a href="/tasks/{{this.slug}}">
@@ -39,10 +39,10 @@
                         </a>
                         <p class="card-text font-weight-light font-italic">{{this.description}}</p>
                     </div>
-                    <div class="card-footer bg-transparent border-success font-weight-bold">
+                    <div class="card-footer border-success font-weight-bold {{isTaskCompleted this.missionQuantity this.completedMissionQuantity}}">
                         <label for="mytask">
-                            <input type="checkbox" name="" id="mytask">
-                            Hoàn thành công việc</label>
+                            <input type="checkbox" id="mytask" class="input-checkbox-danger" data-id="{{this._id}}">
+                            Hoàn thành công việc {{this.completedMissionQuantity}}/{{this.missionQuantity}}</label>
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@
         {{#each tasks}}
         {{#if this.completed}}
         <div class="col-lg-3 col-sm-6">
-            <div class="card border-success mb-3" style="max-width: 18rem;min-height: 15rem;">
+            <div class="card border-success mb-3" style="max-width: 18rem;min-height: 16rem;">
                 <div class="card-header bg-success text-white border-success">{{formatDate this.date}}</div>
                 <div class="card-body">
                     <a href="/tasks/{{this.slug}}">
@@ -64,10 +64,8 @@
                     </a>
                     <p class="card-text font-weight-light font-italic">{{this.description}}</p>
                 </div>
-                <div class="card-footer bg-transparent border-success font-weight-bold">
-                    <label for="mytask">
-                        <input type="checkbox" name="" id="mytask">
-                        Hoàn thành công việc</label>
+                <div class="card-footer bg-transparent border-success font-weight-bold text-center">
+                    Hoàn thành công việc
                 </div>
             </div>
         </div>
@@ -106,6 +104,7 @@
 
 <script>
     var arrInputCheckboxPrimary
+    var arrInputCheckboxDanger
     var taskId
     var updateStatusTask
     var main
@@ -186,6 +185,7 @@
     // callback run when DOM loaded completed
     document.addEventListener('DOMContentLoaded', function () {
         arrInputCheckboxPrimary = document.querySelectorAll('.input-checkbox-primary')
+        arrInputCheckboxDanger = document.querySelectorAll('.input-checkbox-danger')
         updateStatusTask = document.forms['form-update-status-task']
         main = document.getElementById("toast");
         btnCompleteTask = document.getElementById('btn-complete-task')
@@ -203,6 +203,10 @@
             if (itemInputCheckboxPrimary.parentElement.parentElement.classList.contains('bg-transparent')) {
                 itemInputCheckboxPrimary.setAttribute('data-toggle','modal')
                 itemInputCheckboxPrimary.setAttribute('data-target','#modal-confirm-complete')
+            }
+
+            if (itemInputCheckboxPrimary.parentElement.parentElement.classList.contains('not-checked')) {
+                itemInputCheckboxPrimary.setAttribute('disabled', true)
             }
 
             itemInputCheckboxPrimary.onclick = function () {
@@ -223,6 +227,40 @@
                     }
                     modal.addEventListener('click', function() {
                         itemInputCheckboxPrimary.checked = false
+                    })
+                }
+            } 
+        }
+
+        for (const itemInputCheckboxDanger of arrInputCheckboxDanger) {
+            // Check has modal when all missions are not completed
+            if (itemInputCheckboxDanger.parentElement.parentElement.classList.contains('bg-transparent')) {
+                itemInputCheckboxDanger.setAttribute('data-toggle','modal')
+                itemInputCheckboxDanger.setAttribute('data-target','#modal-confirm-complete')
+            }
+
+            if (itemInputCheckboxDanger.parentElement.parentElement.classList.contains('not-checked')) {
+                itemInputCheckboxDanger.setAttribute('disabled', true)
+            }
+
+            itemInputCheckboxDanger.onclick = function () {
+                taskId = itemInputCheckboxDanger.getAttribute('data-id')
+                hasModal = itemInputCheckboxDanger.getAttribute('data-toggle')
+                updateStatusTask.action = `/tasks/${taskId}?_method=PUT`
+                if (itemInputCheckboxDanger.checked && hasModal === null) {
+                    updateStatusTask.submit()
+                } else {
+                    btnCompleteTask.onclick = function() {
+                        updateStatusTask.submit()
+                    }
+                    btnCancelTask.onclick = function() {
+                        itemInputCheckboxDanger.checked = false
+                    }
+                    btnCloseTask.onclick = function() {
+                        itemInputCheckboxDanger.checked = false
+                    }
+                    modal.addEventListener('click', function() {
+                        itemInputCheckboxDanger.checked = false
                     })
                 }
             } 

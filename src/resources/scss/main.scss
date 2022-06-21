@@ -1,10 +1,9 @@
 .container-form {
-  width: 50%;
-  background-color: rgb(73, 68, 68);
+  width: 38%;
+  background-color: rgba(53, 137, 131, 0.7);
   margin: 0 auto;
   min-height: 150px;
-  max-height: 500px;
-  border-radius: 2px;
+  border-radius: 4px;
   padding: 10px 0;
 }
 
@@ -30,6 +29,7 @@
 .task-details {
   border: 1px solid #000;
   margin: 0 10px;
+  background-color: #fff;
 }
 
 .task-details__assignment {
@@ -51,6 +51,10 @@
   display: none;
 }
 
+.notask {
+  display: none;
+}
+
 .task-details__assignment.completed .assignment {
   text-decoration: line-through;
 }
@@ -59,3 +63,7 @@
   margin-right: 8px;
 }
 
+.task-details__height {
+    max-height: 30vh;
+    overflow-y: auto;
+}

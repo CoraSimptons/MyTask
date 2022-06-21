@@ -9,7 +9,6 @@ mongoose.plugin(slug);
 const Task = new Schema({
     name: {type: String, maxlength: 255},
     description: {type: String, maxlength: 600},
-    backgroundColor: {type: String},
     completed: {type: Boolean, default: false},
     date: {type: Date, default: Date.now},
     slug: {type: String, slug: 'name', unique: true},

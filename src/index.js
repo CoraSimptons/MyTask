@@ -49,8 +49,18 @@ app.engine(
         day = day > 9 ? day : '0' + day
         return  day + '-' + month + '-' + text.getFullYear()
       },
+      currentDate: () => {
+        let date = new Date()
+        let month = parseInt(date.getMonth()) + 1
+        month = month > 9 ? month : '0' + month
+        let day = parseInt(date.getDate())
+        day = day > 9 ? day : '0' + day
+        return  date.getFullYear() + '-' + month + '-' + day
+      },
       compareDates: (date) => {
-        if (moment(date).isAfter(new Date())) {
+        let tomorrow = new Date();
+        tomorrow.setDate(date.getDate() + 1);
+        if (moment(tomorrow).isAfter(new Date())) {
           return true;
         }
         return false;
@@ -62,13 +72,26 @@ app.engine(
         return statusCompleted === true ? 'completed' : '';
       },
       isTaskCompleted: (totalMissions, completedMissions) => {
-        return totalMissions === completedMissions ? 'bg-secondary text-white' : 'bg-transparent';
+        if (totalMissions === completedMissions) {
+          if (totalMissions == 0) {
+            return 'bg-transparent not-checked';
+          } else {
+            return 'bg-secondary text-white';
+          }
+        } else {
+          return 'bg-transparent';
+        }
       },
       notify: (info) => {
         return info === 'success' ? 'toastmessage' : '';
       },
       hasMission: (num) => {
         return num > 0 ? '' : 'nomission';
+      },
+      hasTask: (arr) => {
+        let temp = new Array();
+        temp = arr;
+        return  temp.length > 0 ? '' : 'notask';
       },
     }
   })

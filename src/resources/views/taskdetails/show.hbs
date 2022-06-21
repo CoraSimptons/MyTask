@@ -1,5 +1,6 @@
 <form method="POST" action="/taskdetails/store" class="container-form centered">
     <h2 class="heading-form">{{task.name}}</h2>
+    {{#unless task.completed}}
     <div class="input-form">
         <input type="hidden" name="idtask" value="{{task._id}}">
         <div class="form-group">
@@ -7,8 +8,18 @@
         </div>
         <button type="submit" class="btn btn-primary">Thêm</button>
     </div>
+    {{/unless}}
     <div class="task-details {{hasMission task.missionQuantity}}">
         <div class="task-details__heading">Danh sách nhiệm vụ</div>
+        <div class="task-details__height">
+        {{#if task.completed}}
+        {{#each task.taskdetails}}
+        <div class="task-details__assignment {{isCompleted this.completed}}">
+            <input type="checkbox" class="input-check" {{isChecked this.completed}} disabled>
+            <div class="assignment">{{this.name}}</div>      
+        </div>
+        {{/each}}
+        {{else}}
         {{#each task.taskdetails}}
         <div class="task-details__assignment {{isCompleted this.completed}}">
             <input type="checkbox" class="input-check" data-id="{{this._id}}" {{isChecked this.completed}}>
@@ -25,6 +36,8 @@
             </div>       
         </div>
         {{/each}}
+        {{/if}}
+        </div>
     </div>
 </form>
 

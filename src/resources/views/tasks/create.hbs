@@ -11,10 +11,10 @@
         </div>
         <div class="form-group">
             <label for="date">Ngày thực hiện</label>
-            <input type="date" class="form-control" name="date" id="date">
+            <input type="date" class="form-control" name="date" id="date" value="{{currentDate}}">
         </div>
-        <div class="form-group">
-            <label for="backgroundColor">Example select</label>
+        {{!-- <div class="form-group">
+            <label for="backgroundColor">Chọn màu nền</label>
             <select class="form-control" name="backgroundColor" id="backgroundColor">
                 <option value="Cam">Cam</option>
                 <option value="Đỏ">Đỏ</option>
@@ -22,13 +22,7 @@
                 <option value="Xám" selected="selected">Xám</option>
                 <option value="Xanh dương">Xanh dương</option>
             </select>
-        </div>
+        </div> --}}
         <button type="submit" class="btn btn-primary">Tạo mới</button>
     </form>
 </div>
-
-<script>
-    const inputDate = document.querySelector('input[type="date"]');
-    inputDate.setAttribute('value', '2022-06-12')
-</script>
-

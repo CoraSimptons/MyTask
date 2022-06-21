@@ -23,10 +23,7 @@ class TaskDetailController {
                                 Task.findById(req.body.idtask).
                                     populate('taskdetails'). // only works if we pushed refs to children
                                     exec()
-                                        // .then(task => res.json(task))
-                                        .then(task => res.render('taskdetails/show', {
-                                            task: mongooseToObject(task)
-                                        }))
+                                        .then(task => res.redirect('back'))
                                         .catch(next);
                             })
                             .catch(next);

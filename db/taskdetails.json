@@ -1,0 +1,441 @@
+[{
+  "_id": {
+    "$oid": "62b15f3e9bb7c8f0d49c6c9b"
+  },
+  "name": "Bài 1 trang 25 SGK",
+  "completed": true,
+  "idtask": {
+    "$oid": "62b1544ac68e7dba2ffa4007"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655791422784"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655792726403"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b15fcd9bb7c8f0d49c6ca7"
+  },
+  "name": "Bài 10 trang 29 SGK",
+  "completed": true,
+  "idtask": {
+    "$oid": "62b1544ac68e7dba2ffa4007"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655791565923"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655792728608"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b161039bb7c8f0d49c6cb8"
+  },
+  "name": "Thứ 2",
+  "completed": true,
+  "idtask": {
+    "$oid": "62b160999bb7c8f0d49c6cb2"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655791875798"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655798269166"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b1610e9bb7c8f0d49c6cc1"
+  },
+  "name": "Thứ 3",
+  "completed": false,
+  "idtask": {
+    "$oid": "62b160999bb7c8f0d49c6cb2"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655791886360"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655791886360"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b163bf9bb7c8f0d49c6cd4"
+  },
+  "name": "Quét nhà",
+  "completed": false,
+  "idtask": {
+    "$oid": "62b1614a9bb7c8f0d49c6cca"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655792575203"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655792575203"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b163c59bb7c8f0d49c6cdd"
+  },
+  "name": "Giặt đồ",
+  "completed": false,
+  "idtask": {
+    "$oid": "62b1614a9bb7c8f0d49c6cca"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655792581607"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655792581607"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b163d19bb7c8f0d49c6ce5"
+  },
+  "name": "Rửa chén",
+  "completed": false,
+  "idtask": {
+    "$oid": "62b1614a9bb7c8f0d49c6cca"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655792593110"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655792593110"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b163dd9bb7c8f0d49c6ced"
+  },
+  "name": "Nấu cơm",
+  "completed": false,
+  "idtask": {
+    "$oid": "62b1614a9bb7c8f0d49c6cca"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655792605963"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655792605963"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b163e39bb7c8f0d49c6cf5"
+  },
+  "name": "Lau nhà",
+  "completed": false,
+  "idtask": {
+    "$oid": "62b1614a9bb7c8f0d49c6cca"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655792611477"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655792611477"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b164009bb7c8f0d49c6cfd"
+  },
+  "name": "Phơi đồ",
+  "completed": false,
+  "idtask": {
+    "$oid": "62b1614a9bb7c8f0d49c6cca"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655792640807"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655792640807"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b1641b9bb7c8f0d49c6d05"
+  },
+  "name": "Xếp đồ",
+  "completed": false,
+  "idtask": {
+    "$oid": "62b1614a9bb7c8f0d49c6cca"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655792667821"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655792667821"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b1642c9bb7c8f0d49c6d10"
+  },
+  "name": "Thứ 4",
+  "completed": true,
+  "idtask": {
+    "$oid": "62b160999bb7c8f0d49c6cb2"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655792684650"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655798270404"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b164339bb7c8f0d49c6d18"
+  },
+  "name": "Thứ 5",
+  "completed": false,
+  "idtask": {
+    "$oid": "62b160999bb7c8f0d49c6cb2"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655792691107"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655792691107"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b164399bb7c8f0d49c6d20"
+  },
+  "name": "Thứ 6",
+  "completed": true,
+  "idtask": {
+    "$oid": "62b160999bb7c8f0d49c6cb2"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655792697254"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655798271586"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b1643e9bb7c8f0d49c6d28"
+  },
+  "name": "Thứ 7",
+  "completed": false,
+  "idtask": {
+    "$oid": "62b160999bb7c8f0d49c6cb2"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655792702218"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655792702218"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b16c0744a2c123d93b3ebc"
+  },
+  "name": "Rau muống",
+  "completed": true,
+  "idtask": {
+    "$oid": "62b16bdb44a2c123d93b3eb7"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655794695643"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655794766490"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b16c1044a2c123d93b3ec5"
+  },
+  "name": "Tàu hủ",
+  "completed": false,
+  "idtask": {
+    "$oid": "62b16bdb44a2c123d93b3eb7"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655794704149"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655795327731"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b16c2644a2c123d93b3ed7"
+  },
+  "name": "Chả cá",
+  "completed": true,
+  "idtask": {
+    "$oid": "62b16bdb44a2c123d93b3eb7"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655794726737"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655794767569"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b16f4244a2c123d93b3f0b"
+  },
+  "name": "Sữa chua",
+  "completed": false,
+  "idtask": {
+    "$oid": "62b16f1944a2c123d93b3f06"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655795522003"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655795522003"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b16f7444a2c123d93b3f14"
+  },
+  "name": "Hộp cà phê sữa",
+  "completed": false,
+  "idtask": {
+    "$oid": "62b16f1944a2c123d93b3f06"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655795572047"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655795572047"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b176c929083f9eee559e5e"
+  },
+  "name": "Các thẻ html cơ bản",
+  "completed": true,
+  "idtask": {
+    "$oid": "62b1691b9bb7c8f0d49c6d75"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655797449638"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655797478293"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b176e229083f9eee559e67"
+  },
+  "name": "Các thẻ css cơ bản",
+  "completed": true,
+  "idtask": {
+    "$oid": "62b1691b9bb7c8f0d49c6d75"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655797474683"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655797479070"
+    }
+  },
+  "__v": 0
+}]

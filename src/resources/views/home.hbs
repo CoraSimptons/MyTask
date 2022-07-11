@@ -14,9 +14,8 @@
                         <p class="card-text font-weight-light font-italic">{{this.description}}</p>
                     </div>
                     <div class="card-footer border-success font-weight-bold {{isTaskCompleted this.missionQuantity this.completedMissionQuantity}}">
-                        <label for="mytask">
-                            <input type="checkbox" id="mytask" class="input-checkbox-primary" data-id="{{this._id}}">
-                            Hoàn thành công việc {{this.completedMissionQuantity}}/{{this.missionQuantity}}</label>
+                        <input type="checkbox" class="input-checkbox-primary" data-id="{{this._id}}">
+                        Hoàn thành công việc {{this.completedMissionQuantity}}/{{this.missionQuantity}}</label>
                     </div>
                 </div>
             </div>
@@ -40,9 +39,8 @@
                         <p class="card-text font-weight-light font-italic">{{this.description}}</p>
                     </div>
                     <div class="card-footer border-success font-weight-bold {{isTaskCompleted this.missionQuantity this.completedMissionQuantity}}">
-                        <label for="mytask">
-                            <input type="checkbox" id="mytask" class="input-checkbox-danger" data-id="{{this._id}}">
-                            Hoàn thành công việc {{this.completedMissionQuantity}}/{{this.missionQuantity}}</label>
+                        <input type="checkbox" class="input-checkbox-danger" data-id="{{this._id}}">
+                        Hoàn thành công việc {{this.completedMissionQuantity}}/{{this.missionQuantity}}</label>
                     </div>
                 </div>
             </div>

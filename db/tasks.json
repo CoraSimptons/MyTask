@@ -1,0 +1,262 @@
+[{
+  "_id": {
+    "$oid": "62b1544ac68e7dba2ffa4007"
+  },
+  "name": "Bài tập về nhà",
+  "description": "Làm 10 bài tập toán thầy giao trên lớp",
+  "completed": true,
+  "date": {
+    "$date": {
+      "$numberLong": "1655769600000"
+    }
+  },
+  "slug": "bai-tap-ve-nha",
+  "taskdetails": [
+    {
+      "$oid": "62b15f3e9bb7c8f0d49c6c9b"
+    },
+    {
+      "$oid": "62b15fcd9bb7c8f0d49c6ca7"
+    }
+  ],
+  "missionQuantity": 2,
+  "completedMissionQuantity": 2,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655788618890"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655792737693"
+    }
+  },
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "62b160999bb7c8f0d49c6cb2"
+  },
+  "name": "Lên thời khoá biểu học tập",
+  "description": "Lên chi tiết cho việc học mỗi ngày",
+  "completed": false,
+  "date": {
+    "$date": {
+      "$numberLong": "1655769600000"
+    }
+  },
+  "slug": "len-thoi-khoa-bieu-hoc-tap",
+  "taskdetails": [
+    {
+      "$oid": "62b161039bb7c8f0d49c6cb8"
+    },
+    {
+      "$oid": "62b1610e9bb7c8f0d49c6cc1"
+    },
+    {
+      "$oid": "62b1642c9bb7c8f0d49c6d10"
+    },
+    {
+      "$oid": "62b164339bb7c8f0d49c6d18"
+    },
+    {
+      "$oid": "62b164399bb7c8f0d49c6d20"
+    },
+    {
+      "$oid": "62b1643e9bb7c8f0d49c6d28"
+    }
+  ],
+  "missionQuantity": 6,
+  "completedMissionQuantity": 3,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655791769330"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655798271580"
+    }
+  },
+  "__v": 6
+},{
+  "_id": {
+    "$oid": "62b1614a9bb7c8f0d49c6cca"
+  },
+  "name": "Việc nhà",
+  "description": "Dọn dẹp nhà cửa",
+  "completed": false,
+  "date": {
+    "$date": {
+      "$numberLong": "1655769600000"
+    }
+  },
+  "slug": "viec-nha",
+  "taskdetails": [
+    {
+      "$oid": "62b163bf9bb7c8f0d49c6cd4"
+    },
+    {
+      "$oid": "62b163c59bb7c8f0d49c6cdd"
+    },
+    {
+      "$oid": "62b163d19bb7c8f0d49c6ce5"
+    },
+    {
+      "$oid": "62b163dd9bb7c8f0d49c6ced"
+    },
+    {
+      "$oid": "62b163e39bb7c8f0d49c6cf5"
+    },
+    {
+      "$oid": "62b164009bb7c8f0d49c6cfd"
+    },
+    {
+      "$oid": "62b1641b9bb7c8f0d49c6d05"
+    }
+  ],
+  "missionQuantity": 7,
+  "completedMissionQuantity": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655791946045"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655793114115"
+    }
+  },
+  "__v": 7
+},{
+  "_id": {
+    "$oid": "62b1691b9bb7c8f0d49c6d75"
+  },
+  "name": "Học HTML và CSS",
+  "description": "Làm quen với lập trình Frontend",
+  "completed": true,
+  "date": {
+    "$date": {
+      "$numberLong": "1656028800000"
+    }
+  },
+  "slug": "hoc-html-va-css",
+  "taskdetails": [
+    {
+      "$oid": "62b176c929083f9eee559e5e"
+    },
+    {
+      "$oid": "62b176e229083f9eee559e67"
+    }
+  ],
+  "missionQuantity": 2,
+  "completedMissionQuantity": 2,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655793947763"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655797494683"
+    }
+  },
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "62b16bdb44a2c123d93b3eb7"
+  },
+  "name": "Đi chợ",
+  "description": "Mua đồ ăn cơm cho buổi chiều",
+  "completed": false,
+  "date": {
+    "$date": {
+      "$numberLong": "1655683200000"
+    }
+  },
+  "slug": "di-cho",
+  "taskdetails": [
+    {
+      "$oid": "62b16c0744a2c123d93b3ebc"
+    },
+    {
+      "$oid": "62b16c1044a2c123d93b3ec5"
+    },
+    {
+      "$oid": "62b16c2644a2c123d93b3ed7"
+    }
+  ],
+  "missionQuantity": 3,
+  "completedMissionQuantity": 2,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655794651562"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655795327728"
+    }
+  },
+  "__v": 4
+},{
+  "_id": {
+    "$oid": "62b16ec244a2c123d93b3f02"
+  },
+  "name": "Học javascript cơ bản",
+  "description": "Làm quen với ngôn ngữ javascript",
+  "completed": false,
+  "date": {
+    "$date": {
+      "$numberLong": "1655769600000"
+    }
+  },
+  "slug": "hoc-javascript-co-ban",
+  "taskdetails": [],
+  "missionQuantity": 0,
+  "completedMissionQuantity": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655795394181"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655795394181"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b16f1944a2c123d93b3f06"
+  },
+  "name": "Đi siêu thị mua đồ",
+  "description": "Mua những đồ dùng cần thiết",
+  "completed": false,
+  "date": {
+    "$date": {
+      "$numberLong": "1655510400000"
+    }
+  },
+  "slug": "di-sieu-thi-mua-do",
+  "taskdetails": [
+    {
+      "$oid": "62b16f4244a2c123d93b3f0b"
+    },
+    {
+      "$oid": "62b16f7444a2c123d93b3f14"
+    }
+  ],
+  "missionQuantity": 2,
+  "completedMissionQuantity": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655795481598"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655795657341"
+    }
+  },
+  "__v": 2
+}]

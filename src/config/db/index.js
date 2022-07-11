@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 
-async function connect() {
+async function connect(url) {
     try {
-        await mongoose.connect('mongodb://localhost:27017/manage_tasks_dev',{
+        await mongoose.connect(url,{
             useNewUrlParser: true,
             useUnifiedTopology: true
         });

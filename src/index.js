@@ -2,9 +2,10 @@ const express = require('express')
 const {engine} = require('express-handlebars')
 const methodOverride = require('method-override')
 const moment = require('moment');
-const path = require('path')
+const path = require('path');
+// const { db } = require('./app/models/Task');
 const app = express()
-const port = 3000
+require('dotenv').config()
 
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'))
@@ -14,7 +15,7 @@ const route = require('./routes')
 
 // Connect db
 const db = require('./config/db')
-db.connect();
+// db.connect();
 
 // middleware handle form data sended server
 app.use(express.urlencoded({
@@ -102,6 +103,17 @@ app.set('views', path.join(__dirname, 'resources/views'));
 // Route init
 route(app)
 
-app.listen(port, () => {
-  console.log(`App listening on port ${port}`)
-})
+// app.listen(port, () => {
+//   console.log(`App listening on port ${port}`)
+// })
+
+const start = async () => {
+  try {
+      await db.connect(process.env.MONGO_URI)
+      app.listen(process.env.PORT || 3000,console.log(`Server is listening on 3000`))
+  } catch (error) {
+      console.log(error)
+  }
+}
+
+start()

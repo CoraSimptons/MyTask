@@ -198,12 +198,12 @@
 
         for (const itemInputCheckboxPrimary of arrInputCheckboxPrimary) {
             // Check has modal when all missions are not completed
-            if (itemInputCheckboxPrimary.parentElement.parentElement.classList.contains('bg-transparent')) {
+            if (itemInputCheckboxPrimary.parentElement.classList.contains('bg-transparent')) {
                 itemInputCheckboxPrimary.setAttribute('data-toggle','modal')
                 itemInputCheckboxPrimary.setAttribute('data-target','#modal-confirm-complete')
             }
 
-            if (itemInputCheckboxPrimary.parentElement.parentElement.classList.contains('not-checked')) {
+            if (itemInputCheckboxPrimary.parentElement.classList.contains('not-checked')) {
                 itemInputCheckboxPrimary.setAttribute('disabled', true)
             }
 
@@ -232,12 +232,12 @@
 
         for (const itemInputCheckboxDanger of arrInputCheckboxDanger) {
             // Check has modal when all missions are not completed
-            if (itemInputCheckboxDanger.parentElement.parentElement.classList.contains('bg-transparent')) {
+            if (itemInputCheckboxDanger.parentElement.classList.contains('bg-transparent')) {
                 itemInputCheckboxDanger.setAttribute('data-toggle','modal')
                 itemInputCheckboxDanger.setAttribute('data-target','#modal-confirm-complete')
             }
 
-            if (itemInputCheckboxDanger.parentElement.parentElement.classList.contains('not-checked')) {
+            if (itemInputCheckboxDanger.parentElement.classList.contains('not-checked')) {
                 itemInputCheckboxDanger.setAttribute('disabled', true)
             }
 
